@@ -1,30 +1,30 @@
 {
   "name": "twilio-flex-sample-backend",
-  "description": "A sample backend service for Twilio Flex with real-time stats.",
+  "description": "Twilio Flex Sample Backend",
   "repository": "https://github.com/jhunter-twilio/twilio-flex-sample-backend",
-  "logo": "https://link-to-your-logo.png",
-  "keywords": ["twilio", "flex", "backend", "realtime", "stats"],
-  "addons": [],
+  "logo": "https://www.example.com/logo.png",
+  "keywords": ["twilio", "flex", "backend"],
   "env": {
     "TWILIO_OUTBOUND_WORKFLOW_SID": {
-      "description": "The SID of your Twilio outbound workflow.",
-      "required": true
+      "description": "The SID of the workflow you just created - used for creating tasks"
     },
     "TWILIO_ACCOUNT_SID": {
-      "description": "The SID of your Twilio account.",
-      "required": true
+      "description": "The account SID of your Twilio account - used for calling Twilio APIs"
     },
     "TWILIO_AUTH_TOKEN": {
-      "description": "The Auth Token for your Twilio account.",
-      "required": true
+      "description": "The auth token of your Twilio account - used for calling Twilio APIs"
     },
     "TWILIO_FLEX_WORKSPACE_SID": {
-      "description": "The SID of your Twilio Flex workspace.",
-      "required": true
+      "description": "TaskRouter Flex Assignment Workspace Sid, generated when creating a Twilio Flex project"
     },
     "EXTERNAL_HOST": {
-      "description": "The external host for callbacks.",
-      "required": true
+      "description": "The host that exposes this service - used for telling Twilio where to make callbacks"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
     }
   }
 }
