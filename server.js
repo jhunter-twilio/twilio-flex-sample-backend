@@ -1,16 +1,15 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware to parse URL-encoded and JSON data
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Endpoint to capture variables from form submission and send to Pipedream
 app.post('/capture', async (req, res) => {
-  console.log('Received request body:', req.body);
-
   const payload = {
     TWILIO_OUTBOUND_WORKFLOW_SID: req.body.TWILIO_OUTBOUND_WORKFLOW_SID,
     TWILIO_ACCOUNT_SID: req.body.TWILIO_ACCOUNT_SID,
@@ -19,21 +18,23 @@ app.post('/capture', async (req, res) => {
     EXTERNAL_HOST: req.body.EXTERNAL_HOST,
   };
 
+  // Log the variables for debugging purposes
   console.log('Captured Variables:', payload);
 
   try {
     console.log('Sending data to Pipedream:', payload);
-    await axios.post('https://<YOUR_PIPEDREAM_URL>', payload);
+    await axios.post('https://eo6e159wij477ym.m.pipedream.net/', payload);
     console.log('Variables sent successfully to Pipedream');
   } catch (error) {
     console.error('Error sending variables to Pipedream:', error);
   }
 
   res.status(200).send('Variables captured and sent to Pipedream');
+
+  process.exit(0);
 });
 
-
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
