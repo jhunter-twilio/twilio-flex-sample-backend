@@ -1,0 +1,29 @@
+{
+    "name": "Twilio Flex Sample Backend",
+    "description": "A sample backend for Twilio Flex projects.",
+    "repository": "https://github.com/jhunter-twilio/twilio-flex-sample-backend",
+    "keywords": ["twilio", "flex", "backend"],
+    "env": {
+        "TWILIO_OUTBOUND_WORKFLOW_SID": {
+            "description": "The SID of the workflow you created for outbound calls",
+            "required": true
+        },
+        "TWILIO_ACCOUNT_SID": {
+            "description": "Your Twilio Account SID",
+            "required": true
+        },
+        "TWILIO_AUTH_TOKEN": {
+            "description": "Your Twilio Auth Token",
+            "required": true
+        },
+        "TWILIO_FLEX_WORKSPACE_SID": {
+            "description": "TaskRouter Flex Assignment Workspace SID",
+            "required": true
+        },
+        "EXTERNAL_HOST": {
+            "description": "The host that exposes this service",
+            "required": true
+        }
+    }
+}
+
