@@ -1,30 +1,26 @@
 {
-  "name": "twilio-flex-sample-backend",
-  "description": "Twilio Flex Sample Backend",
-  "repository": "https://github.com/jhunter-twilio/twilio-flex-sample-backend",
-  "logo": "https://www.example.com/logo.png",
-  "keywords": ["twilio", "flex", "backend"],
+  "name": "Twilio Flex Sample Backend",
+  "description": "Demo backend service for Twilio Flex integrations",
   "env": {
-    "TWILIO_OUTBOUND_WORKFLOW_SID": {
-      "description": "The SID of the workflow you just created - used for creating tasks"
-    },
     "TWILIO_ACCOUNT_SID": {
-      "description": "The account SID of your Twilio account - used for calling Twilio APIs"
+      "description": "Your Twilio Account SID",
+      "required": true
     },
     "TWILIO_AUTH_TOKEN": {
-      "description": "The auth token of your Twilio account - used for calling Twilio APIs"
+      "description": "Your Twilio Auth Token",
+      "required": true
     },
     "TWILIO_FLEX_WORKSPACE_SID": {
-      "description": "TaskRouter Flex Assignment Workspace Sid, generated when creating a Twilio Flex project"
+      "description": "TaskRouter Flex Assignment Workspace SID",
+      "required": true
+    },
+    "TWILIO_OUTBOUND_WORKFLOW_SID": {
+      "description": "The Workflow SID for outbound calls",
+      "required": true
     },
     "EXTERNAL_HOST": {
-      "description": "The host that exposes this service - used for telling Twilio where to make callbacks"
-    }
-  },
-  "formation": {
-    "web": {
-      "quantity": 1,
-      "size": "free"
+      "description": "Heroku app name or external host URL",
+      "required": true
     }
   }
 }
